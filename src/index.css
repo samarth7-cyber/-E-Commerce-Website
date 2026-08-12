@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bone text-ink font-body antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-amber/30;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #D98E2B;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply max-w-7xl mx-auto px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-moss-dark;
+  }
+
+  .blaze {
+    @apply inline-flex items-center gap-1.5;
+  }
+
+  .blaze::before {
+    content: '';
+    @apply w-1.5 h-1.5 rounded-full bg-amber shrink-0;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-bone font-medium px-6 py-3 rounded-sm hover:bg-moss-dark transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/20 text-ink font-medium px-6 py-3 rounded-sm hover:border-ink hover:bg-ink hover:text-bone transition-colors duration-200;
+  }
+
+  .btn-amber {
+    @apply inline-flex items-center justify-center gap-2 bg-amber text-ink font-semibold px-6 py-3 rounded-sm hover:bg-amber-dark transition-colors duration-200;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
